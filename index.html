@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html ng-app="app" lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Workout</title>
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style.css">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Pacifico" rel="stylesheet">
+   </head>
+   <body ng-controller="LogController">
+      <nav class="navbar navbar-light bg-faded">
+         <div class="container text-center">
+            <img src="images/icons/trophy.png" class="img-fluid" alt="Image Trophy" />
+            <p><h1>Workout Log</h1></p>
+            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#register">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i> New activity
+            </button>  
+         </div>
+      </nav>
+      <div class="container cont-log">
+         <ul class="list-unstyled">
+            <div ng-repeat="log in list | orderBy:'-date'">
+               <li class="media item-log">
+                  <img class="d-flex align-self-center mr-3 img-fluid img-item" ng-src="images/icons/{{log.modality}}.png" alt="Image Football">
+                  <div class="media-body">
+                     <div class="row">
+                        <div class="col col-sm-8 col-md-8">
+                           <h5 class="modality-name mt-0 mb-1">{{ log.modality }}</h5>
+                           <p>Duration: {{ log.time }} </p>
+                           <p><small>{{ log.date | date }}</small></p>
+                        </div>
+                        <div class="col col-sm-24 col-md-4">
+                           <button type="button" class="close right-close" ng-click="delete($index)">
+                           <i class="fa fa-minus-circle fa-red pull-right" aria-hidden="true"></i>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+            </div>
+         </ul>
+      </div>
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12 text-center">
+               <h3 class="text-size">{{ text }}</h3>
+            </div>
+         </div>
+      </div>
+      <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">New log</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <i class="fa fa-times-circle" aria-hidden="true"></i>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-md-6 mg-bottom">
+                           <label for="time-input">How long</label>
+                           <input class="form-control" type="text" ng-model="obj.time" id="time" required   model-view-value="true" ui-mask="{{'99:99'}}"  ui-mask-placeholder>
+                        </div>
+                        <div class="col-md-6 mg-bottom">
+                           <label for="modality">Modality</label>
+                           <select class="form-control" ng-model="obj.modality" id="modality" required>
+                              <option selected disabled value="">Select</option>
+                              <option>football</option>
+                              <option>running</option>
+                              <option>tennis</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-12">
+                           <label for="date-input">Date</label>
+                           <input class="form-control" type="date" ng-model="obj.date" id="date" required>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i> Close</button>
+                  <button type="button" class="btn btn-lg btn-success" value="save" ng-click="save()"><i class="fa fa-check" aria-hidden="true"></i> Save</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <footer class="text-center">
+                  <hr />            
+                  <p>&copy; Workout 2017</p>
+               </footer>
+            </div>
+         </div>
+      </div>
+      <script src="js/angular.min.js"></script>
+      <script src="js/controllers.js"></script>
+      <script src="js/mask.min.js"></script>
+      <script src="js/jquery-3.1.1.slim.min.js"></script>
+      <script src="js/tether.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/fontawesome.js"></script>  
+   </body>
+</html>

@@ -1,0 +1,78 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #01243a;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.navbar-light {
+    color: #01243a;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: url("../images/bg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.navbar-light h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.navbar-light h2 {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.cont-log {
+    padding-top: 20px;
+}
+
+.media-body {
+    padding-top: 1.2%;
+}
+
+.media-body h5 {
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.img-item {
+    max-width: 90px;
+}
+
+small {
+    font-size: 14px;
+}
+
+.item-log {
+    padding: 1%;
+}
+
+.fa-red {
+    color: #f1543f;
+}
+
+.mg-bottom {
+    margin-bottom: 10px;
+}
+
+.modal-content {
+    border: 0px;
+}
+
+.text-size {
+    font-weight: 300;
+}
+
+.right-close {
+    margin-top: 4px;
+}
+
+select,
+.modality-name {
+    text-transform: capitalize;
+}
